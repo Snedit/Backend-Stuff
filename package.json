@@ -1,0 +1,11 @@
+{
+  "name": "mernproject",
+  "version": "1.0.0",
+  "description": "A complete backend project using industry standards",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Soham De",
+  "license": "ISC"
+}
