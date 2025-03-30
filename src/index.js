@@ -1,12 +1,23 @@
 // require("dotenv").config(); this doesn't look good in ES6
 import dotenv from "dotenv";
 import connectDB from "./db/index.js";
+import { app } from "./app.js";
 
 dotenv.config({
     path: "./.env"
 });
-connectDB();
 
+connectDB()
+// as connectDb is an async function, we can use .then() and .catch() to handle the promise
+.then(() => {
+    // if db connection is successful, start the express server
+app.listen(process.env.PORT, () => {
+    console.log(`Server started at port ${process.env.PORT}`);
+});
+})
+.catch((error) => {
+    console.error("Error connecting to database", error);
+});
 
 
 
