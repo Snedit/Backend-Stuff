@@ -29,4 +29,16 @@ app.use(express.static("public"))
 app.use(cookieParser())
 // a req is handled like this app.use((err, req, res, next) => {})
 
+
+
+// routes import 
+import userRouter from "./routes/user.routes.js";
+
+// routes declaration
+// important: we used to write app.get() but now we use app.use() because we are using a router
+// so we need a middleware to handle the routes
+// naming convention for routes is /api/v1/...
+app.use("/api/v1/users", userRouter)
+
+
 export {app};

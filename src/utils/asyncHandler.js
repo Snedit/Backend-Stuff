@@ -15,13 +15,13 @@
 // an UTILITY function to handle async functions
 
 const asyncHandler = (requesthandler)=>{
-(req,res,next)=>{
-    Promise
-    .resolve(requesthandler(req,res,next))
-    .catch((err)=>{
-        next(err);
-    })
-}
+    return (req,res,next)=>{
+        Promise
+        .resolve(requesthandler(req,res,next))
+        .catch((err)=>{
+            next(err);
+        })
+    }
 };
 export {asyncHandler};
 // higher order function to handle async functions, higher order functions are functions that take in functions as arguments    
